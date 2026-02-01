@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://db360ym6ltn3k"]
+
+[ext_resource type="Script" uid="uid://mljf8hkf4mrr" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dixtdjdf0elru" path="res://super_quad.tscn" id="1_ig7tw"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_0xm2m")
+
+[node name="SuperQuad" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(200, 200)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LabelHello" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_right = 200.0
+offset_bottom = 101.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Смотри Андрей
+Это тестовый проект тут ты можешь поэксперементировать безопасно
+УРА!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ButtonClick" type="Button" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = -104.0
+offset_right = 88.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "ЖМИ МЕНЯ!!!"
+
+[node name="LabelCount" type="Label" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -64.0
+offset_right = 72.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 1
+
+[connection signal="button_down" from="CanvasLayer/ButtonClick" to="." method="_on_button_click_button_down"]
